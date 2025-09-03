@@ -6,6 +6,7 @@
 package Clases;
 
 import Clases.Contactos;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -68,5 +69,24 @@ public class Directorio_Telefónico {
         }
         return telefono;
     }
-    
+    public ArrayList<Contactos> BuscarContactos(String Ciudad){
+        ArrayList<Contactos> ContactosCiudad = new ArrayList<>();
+        
+        if (agenda.isEmpty()){
+            System.out.println("la agenda esta vacia");
+            return ContactosCiudad;
+        }
+        agenda.entrySet().forEach((entrada) -> {
+            Contactos contacto = entrada.getValue();
+            if(contacto.getCiudad().equalsIgnoreCase(Ciudad)){
+                ContactosCiudad.add(contacto);
+            }
+        });
+        if(ContactosCiudad.isEmpty()){
+            System.out.println("no se encontraron contactos en la ciudad " );
+        }else{
+            System.out.println("contacto encontrado ");
+        }
+        return ContactosCiudad;
+    }
 }
