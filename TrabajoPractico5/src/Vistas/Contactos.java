@@ -68,4 +68,10 @@ public class Contactos {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+    
+    @Override
+    public String toString(){
+        return apellido + ", " + nombre + "| Direccion: " + 
+                direccion + "| Ciudad: "+ ciudad + "| DNI: " + dni; 
+    }
 }

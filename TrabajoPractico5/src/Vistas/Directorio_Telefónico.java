@@ -68,4 +68,8 @@ public class Directorio_Telefónico {
         return telefono;
     }
     
+    public void borrarContacto(Long telefono){
+        agenda.remove(telefono);
+    }
+    
 }
