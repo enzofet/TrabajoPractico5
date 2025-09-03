@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import Clases.Directorio_Telefónico;
+
 /**
  *
  * @author Enzo_2
@@ -14,6 +16,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form VentanaPrincipal
      */
+    static Directorio_Telefónico directorio = new Directorio_Telefónico();
     public VentanaPrincipal() {
         initComponents();
     }
@@ -39,6 +42,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ciudadesMenu = new javax.swing.JMenu();
         agregarCiudad = new javax.swing.JMenuItem();
         salirMenu = new javax.swing.JMenu();
+        btnSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,11 +76,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         directorioMenu.add(buscarClientePorCiudad);
 
         buscarTelPorApellido.setText("Buscar Teléfono por Apellido");
-        buscarTelPorApellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarTelPorApellidoActionPerformed(evt);
-            }
-        });
         directorioMenu.add(buscarTelPorApellido);
 
         jMenuBar1.add(directorioMenu);
@@ -89,6 +88,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(ciudadesMenu);
 
         salirMenu.setText("Salir");
+
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        salirMenu.add(btnSalir);
+
         jMenuBar1.add(salirMenu);
 
         setJMenuBar(jMenuBar1);
@@ -107,9 +115,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buscarTelPorApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarTelPorApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buscarTelPorApellidoActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,6 +158,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem agregarCiudad;
     private javax.swing.JMenuItem agregarCliente;
     private javax.swing.JMenuItem borrarCliente;
+    private javax.swing.JMenuItem btnSalir;
     private javax.swing.JMenuItem buscarCliente;
     private javax.swing.JMenuItem buscarClientePorCiudad;
     private javax.swing.JMenuItem buscarTelPorApellido;
