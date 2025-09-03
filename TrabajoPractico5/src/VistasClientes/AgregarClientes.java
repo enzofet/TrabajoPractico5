@@ -5,6 +5,10 @@
  */
 package VistasClientes;
 
+import Vistas.VentanaPrincipal;
+import Clases.Contactos;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Naiara
@@ -67,18 +71,8 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
         jlbDomicilio.setText("Domicilio:");
 
         txtAgregarDNI.setToolTipText("txtDNI");
-        txtAgregarDNI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAgregarDNIActionPerformed(evt);
-            }
-        });
 
         txtNombreAgregar.setToolTipText("txtNombre");
-        txtNombreAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreAgregarActionPerformed(evt);
-            }
-        });
 
         txtDomicilioAgregar.setToolTipText("txtDomicilio");
 
@@ -221,20 +215,30 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAgregarDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgregarDNIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAgregarDNIActionPerformed
-
-    private void txtNombreAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreAgregarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreAgregarActionPerformed
-
     private void btnSalirAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirAgregarActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_btnSalirAgregarActionPerformed
 
     private void btnGuardarAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarAgregarActionPerformed
-        
+        Long telefono;
+        String apellido = txtApellidoAgregar.getText();
+        String domicilio = txtDomicilioAgregar.getText();
+        String nombre = txtNombreAgregar.getText();
+        int DNI;
+        String ciudad = (String) jcbCiudad.getSelectedItem();
+
+        try {
+            telefono = Long.parseLong(txtTeléfonoAgregar.getText());
+            DNI = Integer.parseInt(txtAgregarDNI.getText());
+            if (!apellido.isEmpty() || !domicilio.isEmpty() || !nombre.isEmpty() || !ciudad.isEmpty()
+                    || telefono != 0 || DNI != 0) {
+                Contactos contacto = new Contactos(DNI, nombre, apellido, ciudad, domicilio);
+                VentanaPrincipal.directorio.agregarContacto(telefono, contacto);
+                JOptionPane.showMessageDialog(this, "Se ha creado el cliente exitosamente.");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Formato incorrecto de dato.");
+        } 
     }//GEN-LAST:event_btnGuardarAgregarActionPerformed
 
 

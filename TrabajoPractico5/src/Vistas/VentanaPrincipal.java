@@ -16,9 +16,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form VentanaPrincipal
      */
-    static Directorio_Telefónico directorio = new Directorio_Telefónico();
+    public static final Directorio_Telefónico directorio = new Directorio_Telefónico();
     public VentanaPrincipal() {
+        
         initComponents();
+        
     }
 
     /**
@@ -86,6 +88,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ciudadesMenu.setText("Ciudades");
 
         agregarCiudad.setText("Agregar Ciudad");
+        agregarCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarCiudadActionPerformed(evt);
+            }
+        });
         ciudadesMenu.add(agregarCiudad);
 
         jMenuBar1.add(ciudadesMenu);
@@ -121,6 +128,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void agregarCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarCiudadActionPerformed
+        
+    }//GEN-LAST:event_agregarCiudadActionPerformed
 
     /**
      * @param args the command line arguments

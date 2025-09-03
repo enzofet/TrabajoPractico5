@@ -5,7 +5,6 @@
  */
 package Clases;
 
-import Clases.Contactos;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
@@ -18,7 +17,11 @@ import java.util.TreeMap;
  */
 public class Directorio_Telefónico {
     
-    TreeMap<Long, Contactos> agenda = new TreeMap<>();
+    TreeMap<Long, Contactos> agenda;
+    
+    public Directorio_Telefónico(){
+        this.agenda = new TreeMap<>();
+    }
     
     public void agregarContacto(Long telefono, Contactos cont) {
         if (!agenda.isEmpty()) {

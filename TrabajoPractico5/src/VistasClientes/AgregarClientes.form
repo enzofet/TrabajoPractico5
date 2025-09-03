@@ -192,17 +192,11 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="txtDNI"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAgregarDNIActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNombreAgregar">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="txtNombre"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreAgregarActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtApellidoAgregar">
         </Component>
