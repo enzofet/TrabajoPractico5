@@ -63,6 +63,7 @@ public class frm_BuscarTelefonoPorApellido extends javax.swing.JInternalFrame {
                 "DNI", "Apellido", "Nombre", "Direccion", "Ciudad", "Telefono"
             }
         ));
+        jTableContactos.setName(""); // NOI18N
         jScrollTabla.setViewportView(jTableContactos);
 
         btnSalir.setText("Salir");
