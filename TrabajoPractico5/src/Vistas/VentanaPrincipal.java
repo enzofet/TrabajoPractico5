@@ -30,6 +30,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         clientesMenu = new javax.swing.JMenu();
@@ -43,6 +44,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         agregarCiudad = new javax.swing.JMenuItem();
         salirMenu = new javax.swing.JMenu();
         btnSalir = new javax.swing.JMenuItem();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -145,7 +148,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
+        
+        
+       
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -165,6 +171,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu ciudadesMenu;
     private javax.swing.JMenu clientesMenu;
     private javax.swing.JMenu directorioMenu;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu salirMenu;
