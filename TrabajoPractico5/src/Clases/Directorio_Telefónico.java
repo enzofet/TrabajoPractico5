@@ -89,4 +89,7 @@ public class Directorio_Telefónico {
         }
         return ContactosCiudad;
     }
+    public void borrarContacto(Long telefono){
+        agenda.remove(telefono);
+    }
 }
