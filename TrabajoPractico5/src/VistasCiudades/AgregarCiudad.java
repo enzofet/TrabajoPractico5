@@ -31,7 +31,7 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
         lblNombreAgregarCiudad = new javax.swing.JLabel();
         txtAgregarCiudad = new javax.swing.JTextField();
         btnGuardarAgregarCiudad = new javax.swing.JButton();
-        txtSalirAgregarCiudad = new javax.swing.JButton();
+        btnSalirAgregarCiudad = new javax.swing.JButton();
 
         lblAgregarCiudad.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblAgregarCiudad.setText("Agregar Ciudad");
@@ -40,7 +40,12 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
 
         btnGuardarAgregarCiudad.setText("Guardar");
 
-        txtSalirAgregarCiudad.setText("Salir");
+        btnSalirAgregarCiudad.setText("Salir");
+        btnSalirAgregarCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirAgregarCiudadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -60,7 +65,7 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnGuardarAgregarCiudad)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSalirAgregarCiudad)))
+                        .addComponent(btnSalirAgregarCiudad)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -74,7 +79,7 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
                     .addComponent(lblNombreAgregarCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSalirAgregarCiudad)
+                    .addComponent(btnSalirAgregarCiudad)
                     .addComponent(btnGuardarAgregarCiudad))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
@@ -93,13 +98,17 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSalirAgregarCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirAgregarCiudadActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirAgregarCiudadActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardarAgregarCiudad;
+    private javax.swing.JButton btnSalirAgregarCiudad;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAgregarCiudad;
     private javax.swing.JLabel lblNombreAgregarCiudad;
     private javax.swing.JTextField txtAgregarCiudad;
-    private javax.swing.JButton txtSalirAgregarCiudad;
     // End of variables declaration//GEN-END:variables
 }

@@ -99,6 +99,11 @@ public class frmBuscar extends javax.swing.JInternalFrame {
         txtF_Domicilio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,6 +195,10 @@ public class frmBuscar extends javax.swing.JInternalFrame {
     private void txtF_ApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtF_ApellidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtF_ApellidoActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

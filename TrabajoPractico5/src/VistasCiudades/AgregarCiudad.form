@@ -50,7 +50,7 @@
                       <Group type="102" attributes="0">
                           <Component id="btnGuardarAgregarCiudad" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="txtSalirAgregarCiudad" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSalirAgregarCiudad" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="40" max="32767" attributes="0"/>
@@ -69,7 +69,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtSalirAgregarCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSalirAgregarCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnGuardarAgregarCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="35" max="32767" attributes="0"/>
@@ -98,10 +98,13 @@
             <Property name="text" type="java.lang.String" value="Guardar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="txtSalirAgregarCiudad">
+        <Component class="javax.swing.JButton" name="btnSalirAgregarCiudad">
           <Properties>
             <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirAgregarCiudadActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
