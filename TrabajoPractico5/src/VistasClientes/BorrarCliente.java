@@ -105,6 +105,11 @@ public class BorrarCliente extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblBorrarCliente);
 
         btnSalirBorrar.setText("Salir");
+        btnSalirBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirBorrarActionPerformed(evt);
+            }
+        });
 
         jScrollPane2.setViewportView(jTextPane1);
 
@@ -192,6 +197,10 @@ public class BorrarCliente extends javax.swing.JFrame {
         }
     } 
     }//GEN-LAST:event_btnBorrarClientesActionPerformed
+
+    private void btnSalirBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirBorrarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirBorrarActionPerformed
 
     /**
      * @param args the command line arguments
