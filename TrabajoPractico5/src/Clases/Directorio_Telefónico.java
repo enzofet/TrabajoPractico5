@@ -24,17 +24,14 @@ public class Directorio_Telefónico {
     }
     
     public void agregarContacto(Long telefono, Contactos cont) {
-        if (!agenda.isEmpty()) {
             if (!agenda.containsKey(telefono)) {
                 agenda.put(telefono, cont);
-                System.out.println("Contato agendado.");
+                System.out.println("Contacto agendado." + agenda.size());
             } else {
                 System.out.println("Nro de teléfono registrado bajo el nombre "
                         + agenda.get(telefono).getApellido() + agenda.get(telefono).getNombre());
             }
-        } else {
-            System.out.println("Aún no hay contactos agendados.");
-        }
+        
     }
 
     public Contactos buscarContacto(Long telefono) {
@@ -94,5 +91,10 @@ public class Directorio_Telefónico {
     }
     public void borrarContacto(Long telefono){
         agenda.remove(telefono);
+    }
+    
+    public boolean claveExistente(Long numero){
+        return agenda.containsKey(numero);
+
     }
 }

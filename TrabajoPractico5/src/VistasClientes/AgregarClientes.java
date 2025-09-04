@@ -19,7 +19,6 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
     /**
      * Creates new form AgregarClientes
      */
-
     public JComboBox<String> getJcbCiudad() {
         return this.jcbCiudad;
     }
@@ -239,14 +238,18 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
             } else {
                 telefono = Long.parseLong(txtTeléfonoAgregar.getText());
                 DNI = Integer.parseInt(txtAgregarDNI.getText());
-                Contactos contacto = new Contactos(DNI, nombre, apellido, ciudad, domicilio);
-                VentanaPrincipal.directorio.agregarContacto(telefono, contacto);
-                JOptionPane.showMessageDialog(this, "Se ha creado el cliente exitosamente.");
-                txtApellidoAgregar.setText("");
-                txtDomicilioAgregar.setText("");
-                txtNombreAgregar.setText("");
-                txtTeléfonoAgregar.setText("");
-                txtAgregarDNI.setText("");
+                if (VentanaPrincipal.directorio.claveExistente(telefono)) {
+                    JOptionPane.showMessageDialog(this, "Telefono ya registrado.");
+                } else {
+                    Contactos contacto = new Contactos(DNI, nombre, apellido, ciudad, domicilio);
+                    VentanaPrincipal.directorio.agregarContacto(telefono, contacto);
+                    JOptionPane.showMessageDialog(this, "Se ha creado el cliente exitosamente.");
+                    txtApellidoAgregar.setText("");
+                    txtDomicilioAgregar.setText("");
+                    txtNombreAgregar.setText("");
+                    txtTeléfonoAgregar.setText("");
+                    txtAgregarDNI.setText("");
+                }
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Formato incorrecto de dato.");
