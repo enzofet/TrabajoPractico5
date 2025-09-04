@@ -30,7 +30,7 @@
                   <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Component id="btnGuardarAgregar" min="-2" pref="71" max="-2" attributes="0"/>
+                      <Component id="btnGuardarAgregar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnSalirAgregar" min="-2" pref="64" max="-2" attributes="0"/>
                   </Group>
@@ -273,11 +273,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Guardar"/>
         <Property name="toolTipText" type="java.lang.String" value="btnGuardar"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-            <BevelBorder/>
-          </Border>
-        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarAgregarActionPerformed"/>
@@ -287,11 +282,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Salir"/>
         <Property name="toolTipText" type="java.lang.String" value="btnSalirClientes"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-            <BevelBorder/>
-          </Border>
-        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirAgregarActionPerformed"/>

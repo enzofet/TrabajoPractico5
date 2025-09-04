@@ -161,7 +161,6 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
 
         btnGuardarAgregar.setText("Guardar");
         btnGuardarAgregar.setToolTipText("btnGuardar");
-        btnGuardarAgregar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGuardarAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarAgregarActionPerformed(evt);
@@ -170,7 +169,6 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
 
         btnSalirAgregar.setText("Salir");
         btnSalirAgregar.setToolTipText("btnSalirClientes");
-        btnSalirAgregar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSalirAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirAgregarActionPerformed(evt);
@@ -191,7 +189,7 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(btnGuardarAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGuardarAgregar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSalirAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
