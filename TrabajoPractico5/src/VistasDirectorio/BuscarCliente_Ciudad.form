@@ -117,15 +117,13 @@
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="San Luis"/>
-                <StringItem index="1" value="Villa Mercedes"/>
-                <StringItem index="2" value="Juana Koslay"/>
-                <StringItem index="3" value="Volcan"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="jcbCiudad2"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbCiudadActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>

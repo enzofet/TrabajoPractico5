@@ -4,7 +4,9 @@
  */
 package VistasCiudades;
 
+import Vistas.VentanaPrincipal;
 import VistasClientes.AgregarClientes;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -111,9 +113,22 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_btnSalirAgregarCiudadActionPerformed
 
+    /*
+    Compruebo si el campo no está vacio y lo añado a jComboBox de agregarClientes y 
+    posteriormente lo reordeno, en caso de estar vacio el textField largo un mensaje
+    que no escribio la ciudad.
+    */
     private void btnGuardarAgregarCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarAgregarCiudadActionPerformed
-        String ciudad = txtAgregarCiudad.getText();
-        ventanaTemporal.agregarCiudades(ciudad);
+        if(!txtAgregarCiudad.getText().isEmpty()){
+            String ciudad = txtAgregarCiudad.getText();
+            ventanaTemporal.getJcbCiudad().addItem(ciudad);
+            VentanaPrincipal.rellenoOrdenAlfabeticoComboBox(ventanaTemporal.getJcbCiudad());
+            JOptionPane.showMessageDialog(this, "Ciudad agregada exitosamente.");
+            txtAgregarCiudad.setText("");
+        } else{
+         JOptionPane.showMessageDialog(this, "No ha ingresado la ciudad a agregar.");
+        }
+        
     }//GEN-LAST:event_btnGuardarAgregarCiudadActionPerformed
 
 

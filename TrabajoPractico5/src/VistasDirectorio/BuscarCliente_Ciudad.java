@@ -5,6 +5,10 @@
  */
 package VistasDirectorio;
 
+import VistasClientes.AgregarClientes;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author Naiara
@@ -14,8 +18,16 @@ public class BuscarCliente_Ciudad extends javax.swing.JInternalFrame {
     /**
      * Creates new form BuscarCliente_Ciudad
      */
-    public BuscarCliente_Ciudad() {
+    private AgregarClientes temporal;
+    public void rellenarCiudades(JComboBox caja){
+        DefaultComboBoxModel cajaCiudades = (DefaultComboBoxModel) caja.getModel();
+        jcbCiudad.setModel(cajaCiudades);
+        
+    }
+    public BuscarCliente_Ciudad(AgregarClientes ventana) {
         initComponents();
+        this.temporal = ventana;
+        rellenarCiudades(temporal.getJcbCiudad());
     }
 
     /**
@@ -45,8 +57,12 @@ public class BuscarCliente_Ciudad extends javax.swing.JInternalFrame {
 
         jcbCiudad.setBackground(new java.awt.Color(51, 153, 255));
         jcbCiudad.setForeground(new java.awt.Color(51, 51, 51));
-        jcbCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "San Luis", "Villa Mercedes", "Juana Koslay", "Volcan" }));
         jcbCiudad.setToolTipText("jcbCiudad2");
+        jcbCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbCiudadActionPerformed(evt);
+            }
+        });
 
         jTable1.setBackground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -129,6 +145,10 @@ public class BuscarCliente_Ciudad extends javax.swing.JInternalFrame {
     private void btnSalirDirectorioCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirDirectorioCiudadActionPerformed
       dispose();
     }//GEN-LAST:event_btnSalirDirectorioCiudadActionPerformed
+
+    private void jcbCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCiudadActionPerformed
+        
+    }//GEN-LAST:event_jcbCiudadActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

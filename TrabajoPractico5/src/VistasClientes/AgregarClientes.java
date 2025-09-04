@@ -7,6 +7,7 @@ package VistasClientes;
 
 import Vistas.VentanaPrincipal;
 import Clases.Contactos;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,10 +19,11 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
     /**
      * Creates new form AgregarClientes
      */
-    public void agregarCiudades(String ciudad){
-        jcbCiudad.addItem(ciudad);
+
+    public JComboBox<String> getJcbCiudad() {
+        return this.jcbCiudad;
     }
-    
+
     public AgregarClientes() {
         initComponents();
     }
@@ -230,7 +232,7 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
         String ciudad = (String) jcbCiudad.getSelectedItem();
 
         try {
-            
+
             if (apellido.isEmpty() || domicilio.isEmpty() || nombre.isEmpty() || ciudad.isEmpty()
                     || txtTeléfonoAgregar.getText().isEmpty() || txtAgregarDNI.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Faltan datos.");
@@ -240,10 +242,15 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
                 Contactos contacto = new Contactos(DNI, nombre, apellido, ciudad, domicilio);
                 VentanaPrincipal.directorio.agregarContacto(telefono, contacto);
                 JOptionPane.showMessageDialog(this, "Se ha creado el cliente exitosamente.");
+                txtApellidoAgregar.setText("");
+                txtDomicilioAgregar.setText("");
+                txtNombreAgregar.setText("");
+                txtTeléfonoAgregar.setText("");
+                txtAgregarDNI.setText("");
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Formato incorrecto de dato.");
-        } 
+        }
     }//GEN-LAST:event_btnGuardarAgregarActionPerformed
 
 

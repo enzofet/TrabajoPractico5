@@ -12,6 +12,10 @@ import VistasClientes.BorrarCliente;
 import VistasClientes.frmBuscar;
 import VistasDirectorio.BuscarCliente_Ciudad;
 import VistasDirectorio.frm_BuscarTelefonoPorApellido;
+import java.util.ArrayList;
+import java.util.Collections;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -22,9 +26,37 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form VentanaPrincipal
      */
-    public static final Directorio_Telefónico directorio = new Directorio_Telefónico();
-    private AgregarClientes agregarClientes;
+    public static Directorio_Telefónico directorio = new Directorio_Telefónico();
+    private AgregarClientes vistaClienteAgregar;
+
+    /*
+    Creo metodo para utilizar reasignar las ciudades a un modelo de box y lo reasigno
+    a un Array para ordenarlo alfabeticamente y posteriormente añadir los elementos al 
+    modelo de caja para asignarlo al modelo de la caja pasada por parametro.
+    Es reutilizable ya que lo hice static con VentanaPrincipal.nombremetodo.
+    firma enzito piola
+    */
+    public static void rellenoOrdenAlfabeticoComboBox(JComboBox box) {
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        ArrayList<String> ciudades = new ArrayList<>();
+        for (int i = 0; i < box.getItemCount(); i++) {
+            ciudades.add((String) box.getItemAt(i));
+        }
+        Collections.sort(ciudades);
+        for (String ciudad : ciudades) {
+            model.addElement(ciudad);
+        }
+        box.setModel(model);
+    }
+    
+    /*
+    Inicia la ventana de agregarClientes para usar de referencia las ciudades 
+    por defecto que contiene.
+    */
+    
     public VentanaPrincipal() {
+        vistaClienteAgregar = new AgregarClientes();
+        rellenoOrdenAlfabeticoComboBox(vistaClienteAgregar.getJcbCiudad());
         initComponents();
     }
 
@@ -160,9 +192,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void agregarCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarCiudadActionPerformed
+        vistaClienteAgregar.setVisible(false);
         escritorio.removeAll();
         escritorio.repaint();
-        AgregarCiudad vistaAgregarCiudad = new AgregarCiudad(agregarClientes);
+        AgregarCiudad vistaAgregarCiudad = new AgregarCiudad(vistaClienteAgregar);
         vistaAgregarCiudad.setVisible(true);
         escritorio.add(vistaAgregarCiudad);
         escritorio.moveToFront(vistaAgregarCiudad);
@@ -171,7 +204,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void agregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarClienteActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        AgregarClientes vistaClienteAgregar = new AgregarClientes();
         vistaClienteAgregar.setVisible(true);
         escritorio.add(vistaClienteAgregar);
         escritorio.moveToFront(vistaClienteAgregar);
@@ -196,7 +228,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarClienteActionPerformed
 
     private void buscarTelPorApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarTelPorApellidoActionPerformed
-        escritorio.removeAll();
+        vistaClienteAgregar.setVisible(false);
+        vistaClienteAgregar.dispose();
         escritorio.repaint();
         frm_BuscarTelefonoPorApellido vistaClienteBuscarApellido = new frm_BuscarTelefonoPorApellido();
         vistaClienteBuscarApellido.setVisible(true);
@@ -205,9 +238,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarTelPorApellidoActionPerformed
 
     private void buscarClientePorCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarClientePorCiudadActionPerformed
+        /**Ejecuto el metodo estatico para rellenar dinamicamente y por si no agrega 
+         * ninguna ciudad**/
+        VentanaPrincipal.rellenoOrdenAlfabeticoComboBox(vistaClienteAgregar.getJcbCiudad());
         escritorio.removeAll();
         escritorio.repaint();
-        BuscarCliente_Ciudad vistaClienteBuscarCiudad = new BuscarCliente_Ciudad();
+        BuscarCliente_Ciudad vistaClienteBuscarCiudad = new BuscarCliente_Ciudad(vistaClienteAgregar);
         vistaClienteBuscarCiudad.setVisible(true);
         escritorio.add(vistaClienteBuscarCiudad);
         escritorio.moveToFront(vistaClienteBuscarCiudad);
