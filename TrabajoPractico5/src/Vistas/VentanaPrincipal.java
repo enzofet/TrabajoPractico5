@@ -8,7 +8,7 @@ package Vistas;
 import Clases.Directorio_Telefónico;
 import VistasCiudades.AgregarCiudad;
 import VistasClientes.AgregarClientes;
-import VistasClientes.BorrarCliente;
+import VistasClientes.BorrarClientes;
 import VistasClientes.frmBuscar;
 import VistasDirectorio.BuscarCliente_Ciudad;
 import VistasDirectorio.frm_BuscarTelefonoPorApellido;
@@ -212,7 +212,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void borrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarClienteActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        BorrarCliente bc = new BorrarCliente();
+        BorrarClientes bc = new BorrarClientes();
         bc.setVisible(true);
         escritorio.add(bc);
         escritorio.moveToFront(bc);
