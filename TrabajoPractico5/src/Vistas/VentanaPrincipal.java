@@ -130,9 +130,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         directorioMenu.setText("Directorio");
 
         buscarClientePorCiudad.setText("Buscar Clientes por Ciudad");
+        buscarClientePorCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarClientePorCiudadActionPerformed(evt);
+            }
+        });
         directorioMenu.add(buscarClientePorCiudad);
 
         buscarTelPorApellido.setText("Buscar Teléfono por Apellido");
+        buscarTelPorApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarTelPorApellidoActionPerformed(evt);
+            }
+        });
         directorioMenu.add(buscarTelPorApellido);
 
         barraMenu.add(directorioMenu);
