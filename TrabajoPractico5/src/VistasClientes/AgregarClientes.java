@@ -228,10 +228,13 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
         String ciudad = (String) jcbCiudad.getSelectedItem();
 
         try {
-            telefono = Long.parseLong(txtTeléfonoAgregar.getText());
-            DNI = Integer.parseInt(txtAgregarDNI.getText());
-            if (!apellido.isEmpty() || !domicilio.isEmpty() || !nombre.isEmpty() || !ciudad.isEmpty()
-                    || telefono != 0 || DNI != 0) {
+            
+            if (apellido.isEmpty() || domicilio.isEmpty() || nombre.isEmpty() || ciudad.isEmpty()
+                    || txtTeléfonoAgregar.getText().isEmpty() || txtAgregarDNI.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Faltan datos.");
+            } else {
+                telefono = Long.parseLong(txtTeléfonoAgregar.getText());
+                DNI = Integer.parseInt(txtAgregarDNI.getText());
                 Contactos contacto = new Contactos(DNI, nombre, apellido, ciudad, domicilio);
                 VentanaPrincipal.directorio.agregarContacto(telefono, contacto);
                 JOptionPane.showMessageDialog(this, "Se ha creado el cliente exitosamente.");
