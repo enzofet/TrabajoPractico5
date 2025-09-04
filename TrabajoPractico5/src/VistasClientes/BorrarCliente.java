@@ -5,6 +5,7 @@
  */
 package VistasClientes;
 
+import Vistas.VentanaPrincipal;
 import javax.swing.JOptionPane;
 
 /**
@@ -187,15 +188,25 @@ public class BorrarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDniClienteActionPerformed
 
     private void btnBorrarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarClientesActionPerformed
-      String dni = txtDniCliente.getText().trim();
-    if (!dni.isEmpty()) {
-        boolean eliminado = true;
-        if (eliminado) {
-            JOptionPane.showMessageDialog(this, "Cliente eliminado correctamente.");
-        } else {
-            JOptionPane.showMessageDialog(this, "No se encontró cliente con ese DNI.");
+     String dniTexto = txtDniCliente.getText().trim();
+
+    if (!dniTexto.isEmpty()) {
+        try {
+            Long dni = Long.parseLong(dniTexto);
+            boolean eliminado = VentanaPrincipal.directorio.eliminarPorDni(dni);
+
+            if (eliminado) {
+                JOptionPane.showMessageDialog(this, "Cliente eliminado correctamente.");
+                txtDniCliente.setText(""); 
+            } else {
+                JOptionPane.showMessageDialog(this, "No se encontró cliente con ese DNI.");
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "El DNI debe ser un número válido.");
         }
-    } 
+    
+    }
+
     }//GEN-LAST:event_btnBorrarClientesActionPerformed
 
     private void btnSalirBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirBorrarActionPerformed
