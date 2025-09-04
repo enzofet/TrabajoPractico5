@@ -6,9 +6,12 @@
 package Vistas;
 
 import Clases.Directorio_Telefónico;
+import VistasCiudades.AgregarCiudad;
 import VistasClientes.AgregarClientes;
 import VistasClientes.BorrarCliente;
 import VistasClientes.frmBuscar;
+import VistasDirectorio.BuscarCliente_Ciudad;
+import VistasDirectorio.frm_BuscarTelefonoPorApellido;
 
 /**
  *
@@ -97,9 +100,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         directorioMenu.setText("Directorio");
 
         buscarClientePorCiudad.setText("Buscar Clientes por Ciudad");
+        buscarClientePorCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarClientePorCiudadActionPerformed(evt);
+            }
+        });
         directorioMenu.add(buscarClientePorCiudad);
 
         buscarTelPorApellido.setText("Buscar Teléfono por Apellido");
+        buscarTelPorApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarTelPorApellidoActionPerformed(evt);
+            }
+        });
         directorioMenu.add(buscarTelPorApellido);
 
         barraMenu.add(directorioMenu);
@@ -151,7 +164,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void agregarCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarCiudadActionPerformed
-        
+        escritorio.removeAll();
+        escritorio.repaint();
+        AgregarCiudad vistaAgregarCiudad = new AgregarCiudad();
+        vistaAgregarCiudad.setVisible(true);
+        escritorio.add(vistaAgregarCiudad);
+        escritorio.moveToFront(vistaAgregarCiudad);
     }//GEN-LAST:event_agregarCiudadActionPerformed
 
     private void agregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarClienteActionPerformed
@@ -180,6 +198,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         escritorio.add(vistaClienteBuscar);
         escritorio.moveToFront(vistaClienteBuscar);
     }//GEN-LAST:event_buscarClienteActionPerformed
+
+    private void buscarTelPorApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarTelPorApellidoActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        frm_BuscarTelefonoPorApellido vistaClienteBuscarApellido = new frm_BuscarTelefonoPorApellido();
+        vistaClienteBuscarApellido.setVisible(true);
+        escritorio.add(vistaClienteBuscarApellido);
+        escritorio.moveToFront(vistaClienteBuscarApellido);
+    }//GEN-LAST:event_buscarTelPorApellidoActionPerformed
+
+    private void buscarClientePorCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarClientePorCiudadActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        BuscarCliente_Ciudad vistaClienteBuscarCiudad = new BuscarCliente_Ciudad();
+        vistaClienteBuscarCiudad.setVisible(true);
+        escritorio.add(vistaClienteBuscarCiudad);
+        escritorio.moveToFront(vistaClienteBuscarCiudad);
+    }//GEN-LAST:event_buscarClientePorCiudadActionPerformed
 
     /**
      * @param args the command line arguments
