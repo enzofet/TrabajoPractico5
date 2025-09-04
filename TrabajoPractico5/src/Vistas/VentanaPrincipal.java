@@ -8,6 +8,8 @@ package Vistas;
 import Clases.Directorio_Telefónico;
 import VistasClientes.AgregarClientes;
 import VistasClientes.BorrarCliente;
+import VistasClientes.frmBuscar;
+
 /**
  *
  * @author Enzo_2
@@ -18,10 +20,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      * Creates new form VentanaPrincipal
      */
     public static final Directorio_Telefónico directorio = new Directorio_Telefónico();
+
     public VentanaPrincipal() {
-        
+
         initComponents();
-        
+
     }
 
     /**
@@ -74,6 +77,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         clientesMenu.add(agregarCliente);
 
         buscarCliente.setText("Buscar Cliente");
+        buscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarClienteActionPerformed(evt);
+            }
+        });
         clientesMenu.add(buscarCliente);
 
         borrarCliente.setText("Borrar Cliente");
@@ -143,16 +151,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void agregarCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarCiudadActionPerformed
-        
+
     }//GEN-LAST:event_agregarCiudadActionPerformed
 
     private void agregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarClienteActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-         AgregarClientes vistaClienteAgregar = new AgregarClientes();
-         vistaClienteAgregar.setVisible(true);
-         escritorio.add(vistaClienteAgregar);
-         escritorio.moveToFront(vistaClienteAgregar);
+        AgregarClientes vistaClienteAgregar = new AgregarClientes();
+        vistaClienteAgregar.setVisible(true);
+        escritorio.add(vistaClienteAgregar);
+        escritorio.moveToFront(vistaClienteAgregar);
     }//GEN-LAST:event_agregarClienteActionPerformed
 
     private void borrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarClienteActionPerformed
@@ -163,6 +171,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         escritorio.add(bc);
         escritorio.moveToFront(bc);
     }//GEN-LAST:event_borrarClienteActionPerformed
+
+    private void buscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarClienteActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        frmBuscar vistaClienteBuscar = new frmBuscar();
+        vistaClienteBuscar.setVisible(true);
+        escritorio.add(vistaClienteBuscar);
+        escritorio.moveToFront(vistaClienteBuscar);
+    }//GEN-LAST:event_buscarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,10 +207,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
-        
-        
-       
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
