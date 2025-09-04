@@ -5,6 +5,8 @@
  */
 package VistasClientes;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Claudia Bonisoni
@@ -65,6 +67,11 @@ public class BorrarCliente extends javax.swing.JFrame {
         jLabel1.setText("Borrar Cliente");
 
         btnBorrarClientes.setText("Borrar Cliente/s");
+        btnBorrarClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarClientesActionPerformed(evt);
+            }
+        });
 
         tblBorrarCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -165,6 +172,18 @@ public class BorrarCliente extends javax.swing.JFrame {
     private void txtDniClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDniClienteActionPerformed
+
+    private void btnBorrarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarClientesActionPerformed
+      String dni = txtDniCliente.getText().trim();
+    if (!dni.isEmpty()) {
+        boolean eliminado = true;
+        if (eliminado) {
+            JOptionPane.showMessageDialog(this, "Cliente eliminado correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontró cliente con ese DNI.");
+        }
+    } 
+    }//GEN-LAST:event_btnBorrarClientesActionPerformed
 
     /**
      * @param args the command line arguments
