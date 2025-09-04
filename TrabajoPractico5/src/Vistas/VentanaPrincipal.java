@@ -7,7 +7,7 @@ package Vistas;
 
 import Clases.Directorio_Telefónico;
 import VistasClientes.AgregarClientes;
-
+import VistasClientes.BorrarCliente;
 /**
  *
  * @author Enzo_2
@@ -77,6 +77,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         clientesMenu.add(buscarCliente);
 
         borrarCliente.setText("Borrar Cliente");
+        borrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarClienteActionPerformed(evt);
+            }
+        });
         clientesMenu.add(borrarCliente);
 
         barraMenu.add(clientesMenu);
@@ -149,6 +154,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
          escritorio.add(vistaClienteAgregar);
          escritorio.moveToFront(vistaClienteAgregar);
     }//GEN-LAST:event_agregarClienteActionPerformed
+
+    private void borrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarClienteActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        BorrarCliente bc = new BorrarCliente();
+        bc.setVisible(true);
+        escritorio.add(bc);
+        escritorio.moveToFront(bc);
+    }//GEN-LAST:event_borrarClienteActionPerformed
 
     /**
      * @param args the command line arguments
