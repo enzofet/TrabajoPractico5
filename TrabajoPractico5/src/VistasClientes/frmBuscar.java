@@ -4,6 +4,14 @@
  */
 package VistasClientes;
 
+import Clases.Contactos;
+import Clases.Directorio_Telefónico;
+import Vistas.VentanaPrincipal;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author emadupre
@@ -13,8 +21,22 @@ public class frmBuscar extends javax.swing.JInternalFrame {
     /**
      * Creates new form frmBuscar
      */
+    public void rellenarLista(Directorio_Telefónico directorio){
+
+        TreeMap<Long, Contactos> agendaTemporal = new TreeMap<>();
+        agendaTemporal = directorio.getAgenda();
+        DefaultListModel modelo = new DefaultListModel();
+        for(Map.Entry<Long, Contactos> num : agendaTemporal.entrySet()){
+            modelo.addElement(num.getKey());
+        }
+        jListTelefonos.setModel(modelo);
+       
+        
+    }
+    
     public frmBuscar() {
         initComponents();
+        rellenarLista(VentanaPrincipal.directorio);
     }
 
     /**
@@ -59,6 +81,11 @@ public class frmBuscar extends javax.swing.JInternalFrame {
         txtF_Telefono.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
         txtF_Telefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtF_Telefono.setToolTipText("Ingrese numero de telefono");
+        txtF_Telefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtF_TelefonoActionPerformed(evt);
+            }
+        });
 
         jScrollTelefono.setViewportView(jListTelefonos);
 
@@ -116,13 +143,13 @@ public class frmBuscar extends javax.swing.JInternalFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSalir))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(lblTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(22, 22, 22)
+                        .addComponent(lblTelefono)
+                        .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(separador)
                             .addComponent(jScrollTelefono)
-                            .addComponent(txtF_Telefono))
+                            .addComponent(txtF_Telefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(separador2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -138,7 +165,7 @@ public class frmBuscar extends javax.swing.JInternalFrame {
                             .addComponent(txtF_Ciudad)
                             .addComponent(txtF_Apellido)
                             .addComponent(txtF_Nombre)
-                            .addComponent(txtF_Domicilio, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                            .addComponent(txtF_Domicilio, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                             .addComponent(txtF_DNI))))
                 .addGap(34, 34, 34))
             .addComponent(separador1)
@@ -153,7 +180,7 @@ public class frmBuscar extends javax.swing.JInternalFrame {
                         .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtF_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblTelefono))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -199,6 +226,10 @@ public class frmBuscar extends javax.swing.JInternalFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void txtF_TelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtF_TelefonoActionPerformed
+        
+    }//GEN-LAST:event_txtF_TelefonoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

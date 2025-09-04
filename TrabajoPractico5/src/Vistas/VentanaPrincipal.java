@@ -92,11 +92,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 721, Short.MAX_VALUE)
+            .addGap(0, 756, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+            .addGap(0, 459, Short.MAX_VALUE)
         );
 
         clientesMenu.setText("Clientes");
@@ -130,19 +130,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         directorioMenu.setText("Directorio");
 
         buscarClientePorCiudad.setText("Buscar Clientes por Ciudad");
-        buscarClientePorCiudad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarClientePorCiudadActionPerformed(evt);
-            }
-        });
         directorioMenu.add(buscarClientePorCiudad);
 
         buscarTelPorApellido.setText("Buscar Teléfono por Apellido");
-        buscarTelPorApellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarTelPorApellidoActionPerformed(evt);
-            }
-        });
         directorioMenu.add(buscarTelPorApellido);
 
         barraMenu.add(directorioMenu);

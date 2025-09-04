@@ -20,6 +20,10 @@ public class Directorio_Telefónico {
 
     TreeMap<Long, Contactos> agenda;
 
+    public TreeMap<Long, Contactos> getAgenda() {
+        return agenda;
+    }
+
     public Directorio_Telefónico() {
         this.agenda = new TreeMap<>();
     }
