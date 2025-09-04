@@ -35,7 +35,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jComboBox1 = new javax.swing.JComboBox<>();
         escritorio = new javax.swing.JDesktopPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        barraMenu = new javax.swing.JMenuBar();
         clientesMenu = new javax.swing.JMenu();
         agregarCliente = new javax.swing.JMenuItem();
         buscarCliente = new javax.swing.JMenuItem();
@@ -79,7 +79,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         borrarCliente.setText("Borrar Cliente");
         clientesMenu.add(borrarCliente);
 
-        jMenuBar1.add(clientesMenu);
+        barraMenu.add(clientesMenu);
 
         directorioMenu.setText("Directorio");
 
@@ -89,7 +89,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         buscarTelPorApellido.setText("Buscar Teléfono por Apellido");
         directorioMenu.add(buscarTelPorApellido);
 
-        jMenuBar1.add(directorioMenu);
+        barraMenu.add(directorioMenu);
 
         ciudadesMenu.setText("Ciudades");
 
@@ -101,7 +101,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         ciudadesMenu.add(agregarCiudad);
 
-        jMenuBar1.add(ciudadesMenu);
+        barraMenu.add(ciudadesMenu);
 
         salirMenu.setText("Salir");
 
@@ -113,9 +113,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         salirMenu.add(btnSalir);
 
-        jMenuBar1.add(salirMenu);
+        barraMenu.add(salirMenu);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(barraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -191,6 +191,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem agregarCiudad;
     private javax.swing.JMenuItem agregarCliente;
+    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenuItem borrarCliente;
     private javax.swing.JMenuItem btnSalir;
     private javax.swing.JMenuItem buscarCliente;
@@ -201,7 +202,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu directorioMenu;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu salirMenu;
     // End of variables declaration//GEN-END:variables
 }
