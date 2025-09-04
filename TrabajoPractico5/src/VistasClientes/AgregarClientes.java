@@ -18,6 +18,10 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
     /**
      * Creates new form AgregarClientes
      */
+    public void agregarCiudades(String ciudad){
+        jcbCiudad.addItem(ciudad);
+    }
+    
     public AgregarClientes() {
         initComponents();
     }

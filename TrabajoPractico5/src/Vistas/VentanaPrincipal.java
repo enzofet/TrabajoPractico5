@@ -23,11 +23,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      * Creates new form VentanaPrincipal
      */
     public static final Directorio_Telefónico directorio = new Directorio_Telefónico();
-
+    private AgregarClientes agregarClientes;
     public VentanaPrincipal() {
-
         initComponents();
-
     }
 
     /**
@@ -164,7 +162,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void agregarCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarCiudadActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        AgregarCiudad vistaAgregarCiudad = new AgregarCiudad();
+        AgregarCiudad vistaAgregarCiudad = new AgregarCiudad(agregarClientes);
         vistaAgregarCiudad.setVisible(true);
         escritorio.add(vistaAgregarCiudad);
         escritorio.moveToFront(vistaAgregarCiudad);

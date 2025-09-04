@@ -4,6 +4,8 @@
  */
 package VistasCiudades;
 
+import VistasClientes.AgregarClientes;
+
 /**
  *
  * @author emadupre
@@ -13,7 +15,9 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
     /**
      * Creates new form AgregarCiudad
      */
-    public AgregarCiudad() {
+    private AgregarClientes ventanaTemporal;
+    public AgregarCiudad(AgregarClientes ventana) {
+        this.ventanaTemporal = ventana;
         initComponents();
     }
 
@@ -42,6 +46,11 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
         lblNombreAgregarCiudad.setText("Nombre Ciudad:");
 
         btnGuardarAgregarCiudad.setText("Guardar");
+        btnGuardarAgregarCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarAgregarCiudadActionPerformed(evt);
+            }
+        });
 
         btnSalirAgregarCiudad.setText("Salir");
         btnSalirAgregarCiudad.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +110,11 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
     private void btnSalirAgregarCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirAgregarCiudadActionPerformed
         dispose();
     }//GEN-LAST:event_btnSalirAgregarCiudadActionPerformed
+
+    private void btnGuardarAgregarCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarAgregarCiudadActionPerformed
+        String ciudad = txtAgregarCiudad.getText();
+        ventanaTemporal.agregarCiudades(ciudad);
+    }//GEN-LAST:event_btnGuardarAgregarCiudadActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
