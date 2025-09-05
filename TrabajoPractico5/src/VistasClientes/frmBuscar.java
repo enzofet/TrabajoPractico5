@@ -77,6 +77,7 @@ public class frmBuscar extends javax.swing.JInternalFrame {
         lblTelefono.setFont(new java.awt.Font("URW Gothic", 1, 13)); // NOI18N
         lblTelefono.setText("Teléfono:");
 
+        txtF_Telefono.setEditable(false);
         txtF_Telefono.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
         txtF_Telefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtF_Telefono.setToolTipText("Ingrese numero de telefono");
@@ -109,14 +110,19 @@ public class frmBuscar extends javax.swing.JInternalFrame {
         lblDomicilio.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDomicilio.setText("Domicilio:");
 
+        txtF_DNI.setEditable(false);
         txtF_DNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        txtF_Apellido.setEditable(false);
         txtF_Apellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        txtF_Nombre.setEditable(false);
         txtF_Nombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        txtF_Ciudad.setEditable(false);
         txtF_Ciudad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        txtF_Domicilio.setEditable(false);
         txtF_Domicilio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         btnSalir.setText("Salir");
