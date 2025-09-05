@@ -151,9 +151,6 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="toolTipText" type="java.lang.String" value="Ingrese numero de telefono"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtF_TelefonoActionPerformed"/>
-      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollTelefono">
       <AuxValues>
@@ -168,8 +165,11 @@
               <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="jListTelefonosValueChanged"/>
+          </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Long&gt;"/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -234,9 +234,6 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtF_ApellidoActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtF_Nombre">
       <Properties>

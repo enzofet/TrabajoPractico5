@@ -9,6 +9,7 @@ import Clases.Directorio_Telefónico;
 import VistasCiudades.AgregarCiudad;
 import VistasClientes.AgregarClientes;
 import VistasClientes.BorrarClientes;
+import VistasClientes.BorrarTelefonosPorDNI;
 import VistasClientes.frmBuscar;
 import VistasDirectorio.BuscarCliente_Ciudad;
 import VistasDirectorio.frm_BuscarTelefonoPorApellido;
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -28,7 +31,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     public static Directorio_Telefónico directorio = new Directorio_Telefónico();
     private AgregarClientes vistaClienteAgregar;
-
+    
+    /*Armo cabeceras de jTable */
+    public static void armarCabeceraDeContactosTablas(JTable tabla){
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("DNI");
+        model.addColumn("Apellido");
+        model.addColumn("Nombre");
+        model.addColumn("Direccion");
+        model.addColumn("Ciudad");
+        model.addColumn("Telefono");
+        tabla.setModel(model);
+    }
+    
     /*
     Creo metodo para utilizar reasignar las ciudades a un modelo de box y lo reasigno
     a un Array para ordenarlo alfabeticamente y posteriormente añadir los elementos al 
@@ -76,6 +91,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         agregarCliente = new javax.swing.JMenuItem();
         buscarCliente = new javax.swing.JMenuItem();
         borrarCliente = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         directorioMenu = new javax.swing.JMenu();
         buscarClientePorCiudad = new javax.swing.JMenuItem();
         buscarTelPorApellido = new javax.swing.JMenuItem();
@@ -124,6 +140,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
         clientesMenu.add(borrarCliente);
+
+        jMenuItem1.setText("Borrar telefono por DNI");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        clientesMenu.add(jMenuItem1);
 
         barraMenu.add(clientesMenu);
 
@@ -249,6 +273,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         escritorio.moveToFront(vistaClienteBuscarCiudad);
     }//GEN-LAST:event_buscarClientePorCiudadActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        BorrarTelefonosPorDNI bc = new BorrarTelefonosPorDNI();
+        bc.setVisible(true);
+        escritorio.add(bc);
+        escritorio.moveToFront(bc);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -298,6 +331,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu directorioMenu;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu salirMenu;
     // End of variables declaration//GEN-END:variables
 }

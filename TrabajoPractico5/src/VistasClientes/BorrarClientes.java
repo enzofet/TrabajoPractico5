@@ -155,26 +155,22 @@ public class BorrarClientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtDniClienteActionPerformed
 
     private void btnBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarClienteActionPerformed
-     String dniTexto= txtDniCliente.getText().trim();
-     
-     if(!dniTexto.isEmpty()){
-         try{
-             long dni = Long.parseLong(dniTexto);
-             boolean eliminado = VentanaPrincipal.directorio.eliminarPorDni(dni);
-             if(eliminado){
-                 JOptionPane.showMessageDialog(this, "cliente elminado correctamente");
-                 txtDniCliente.setText(" ");
-             }else{
-                 JOptionPane.showMessageDialog(this , "no se encontro cliente por su dni");
-             }
-         }catch(NumberFormatException ex){
-             JOptionPane.showMessageDialog(this, "El DNI debe ser un número válido.");
-         }
-     }
+        String dniTexto = txtDniCliente.getText().trim();
+        if (!dniTexto.isEmpty()) {
+            try {
+                int dni = Integer.parseInt(dniTexto);
+                VentanaPrincipal.directorio.eliminarPorDni(dni);
+                JOptionPane.showMessageDialog(this, "cliente elminado correctamente");
+                txtDniCliente.setText("");
+                JOptionPane.showMessageDialog(this, "no se encontro cliente por su dni");
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "El DNI debe ser un número válido.");
+            }
+        }
     }//GEN-LAST:event_btnBorrarClienteActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-       dispose();
+        dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
 

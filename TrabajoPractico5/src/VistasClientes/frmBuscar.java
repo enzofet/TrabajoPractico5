@@ -7,7 +7,6 @@ package VistasClientes;
 import Clases.Contactos;
 import Clases.Directorio_Telefónico;
 import Vistas.VentanaPrincipal;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.DefaultListModel;
@@ -81,12 +80,12 @@ public class frmBuscar extends javax.swing.JInternalFrame {
         txtF_Telefono.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
         txtF_Telefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtF_Telefono.setToolTipText("Ingrese numero de telefono");
-        txtF_Telefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtF_TelefonoActionPerformed(evt);
+
+        jListTelefonos.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListTelefonosValueChanged(evt);
             }
         });
-
         jScrollTelefono.setViewportView(jListTelefonos);
 
         separador2.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -113,11 +112,6 @@ public class frmBuscar extends javax.swing.JInternalFrame {
         txtF_DNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         txtF_Apellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtF_Apellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtF_ApellidoActionPerformed(evt);
-            }
-        });
 
         txtF_Nombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
@@ -219,22 +213,25 @@ public class frmBuscar extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtF_ApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtF_ApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtF_ApellidoActionPerformed
-
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void txtF_TelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtF_TelefonoActionPerformed
-        
-    }//GEN-LAST:event_txtF_TelefonoActionPerformed
+    private void jListTelefonosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListTelefonosValueChanged
+        Contactos contacto = VentanaPrincipal.directorio.buscarContacto(jListTelefonos.getSelectedValue());       
+        String dni = Integer.toString(contacto.getDni());
+        txtF_Apellido.setText(contacto.getApellido());
+        txtF_Ciudad.setText(contacto.getCiudad());
+        txtF_DNI.setText(dni);
+        txtF_Domicilio.setText(contacto.getDireccion());
+        txtF_Nombre.setText(contacto.getNombre());
+        txtF_Telefono.setText(Long.toString(jListTelefonos.getSelectedValue()));
+    }//GEN-LAST:event_jListTelefonosValueChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalir;
-    private javax.swing.JList<String> jListTelefonos;
+    private javax.swing.JList<Long> jListTelefonos;
     private javax.swing.JScrollPane jScrollTelefono;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblCiudad;

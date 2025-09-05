@@ -5,7 +5,6 @@
  */
 package Clases;
 
-import Vistas.VentanaPrincipal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
@@ -109,22 +108,13 @@ public class Directorio_Telefónico {
 
     }
 
-    public boolean eliminarPorDni(Long dni) {
-        Long telefonoAEliminar = null;
-
+    public void eliminarPorDni(int dni) {
         for (Map.Entry<Long, Contactos> entry : agenda.entrySet()) {
             Contactos contacto = entry.getValue();
             if (contacto.getDni() == dni) {
-                telefonoAEliminar = entry.getKey();
-                break;
+                agenda.remove(entry.getKey());
+                return;
             }
         }
-
-        if (telefonoAEliminar != null) {
-            agenda.remove(telefonoAEliminar);
-            return true;
-        }
-
-        return false;
     }
 }
