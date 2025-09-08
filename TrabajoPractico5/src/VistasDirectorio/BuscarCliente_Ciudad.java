@@ -5,9 +5,16 @@
  */
 package VistasDirectorio;
 
+import Clases.Contactos;
+import Clases.Directorio_Telefónico;
+import Vistas.VentanaPrincipal;
 import VistasClientes.AgregarClientes;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,15 +26,36 @@ public class BuscarCliente_Ciudad extends javax.swing.JInternalFrame {
      * Creates new form BuscarCliente_Ciudad
      */
     private AgregarClientes temporal;
-    public void rellenarCiudades(JComboBox caja){
+    DefaultTableModel modeloTable = new DefaultTableModel();
+    public void rellenarCiudades(JComboBox caja) {
         DefaultComboBoxModel cajaCiudades = (DefaultComboBoxModel) caja.getModel();
         jcbCiudad.setModel(cajaCiudades);
-        
+
     }
+
+    public void rellenarTabla(Directorio_Telefónico directorio, ArrayList<Contactos> contac) {
+        TreeMap<Long, Contactos> direc = new TreeMap<>();
+        modeloTable = (DefaultTableModel) jTable1.getModel();
+        modeloTable.setRowCount(0);
+        direc = directorio.getAgenda();
+        for (Contactos cont : contac) {
+            for (Map.Entry<Long, Contactos> c : direc.entrySet()) {
+                Contactos usuario = c.getValue();
+                if (usuario.getCiudad().equals(cont.getCiudad())) {
+                    Long telefono = c.getKey();
+                    modeloTable.addRow(new Object[]{cont.getDni(), cont.getNombre(),
+                        cont.getApellido(), cont.getCiudad(), cont.getDireccion(), telefono});
+                }
+            }
+        }
+    }
+
     public BuscarCliente_Ciudad(AgregarClientes ventana) {
         initComponents();
         this.temporal = ventana;
+        VentanaPrincipal.armarCabeceraDeContactosTablas(jTable1);
         rellenarCiudades(temporal.getJcbCiudad());
+        jcbCiudad.setSelectedIndex(-1);
     }
 
     /**
@@ -67,14 +95,10 @@ public class BuscarCliente_Ciudad extends javax.swing.JInternalFrame {
         jTable1.setBackground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "DNI", "Apellido", "Nombre", "Directorio", "Ciudad", "Teléfono"
+
             }
         ));
         jTable1.setGridColor(new java.awt.Color(204, 204, 204));
@@ -143,11 +167,21 @@ public class BuscarCliente_Ciudad extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirDirectorioCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirDirectorioCiudadActionPerformed
-      dispose();
+        dispose();
     }//GEN-LAST:event_btnSalirDirectorioCiudadActionPerformed
 
     private void jcbCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCiudadActionPerformed
+        String ciudad = (String) jcbCiudad.getSelectedItem();
+        ArrayList<Contactos> contactos = new ArrayList<>();
+        contactos.clear();
+        for (Map.Entry<Long, Contactos> cont : VentanaPrincipal.directorio.getAgenda().entrySet()) {
+            Contactos cliente = cont.getValue();
+            if (cliente.getCiudad().equals(ciudad)) {
+                contactos.add(cliente);
+            }
+        }
         
+        rellenarTabla(VentanaPrincipal.directorio, contactos);
     }//GEN-LAST:event_jcbCiudadActionPerformed
 
 

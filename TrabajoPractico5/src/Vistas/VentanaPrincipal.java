@@ -73,6 +73,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         vistaClienteAgregar = new AgregarClientes();
         rellenoOrdenAlfabeticoComboBox(vistaClienteAgregar.getJcbCiudad());
         initComponents();
+        
     }
 
     /**

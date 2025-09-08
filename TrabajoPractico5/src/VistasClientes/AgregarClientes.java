@@ -25,6 +25,8 @@ public class AgregarClientes extends javax.swing.JInternalFrame {
 
     public AgregarClientes() {
         initComponents();
+        jcbCiudad.setSelectedIndex(-1);
+        
     }
 
     /**
