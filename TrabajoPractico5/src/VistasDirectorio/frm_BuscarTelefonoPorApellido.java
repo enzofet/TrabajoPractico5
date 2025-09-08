@@ -4,6 +4,12 @@
  */
 package VistasDirectorio;
 
+import Clases.Contactos;
+import Vistas.VentanaPrincipal;
+import java.util.Map;
+import javax.swing.DefaultListModel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author emadupre
@@ -13,8 +19,53 @@ public class frm_BuscarTelefonoPorApellido extends javax.swing.JInternalFrame {
     /**
      * Creates new form buscarTelefonoPorApellido
      */
+    
+    private void cargarApellidosEnLista(){
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        
+        for(Contactos c : VentanaPrincipal.directorio.getAgenda().values()){
+            if(!modelo.contains(c.getApellido())){
+                modelo.addElement(c.getApellido());
+            }
+        }
+        jListApellidos.setModel(modelo);
+    }
+    
+    private void cargarContactosEnTabla(String apellido){
+        DefaultTableModel modelo = (DefaultTableModel) jTableContactos.getModel();
+        modelo.setRowCount(0);
+        
+        for(Map.Entry<Long, Contactos> entry : VentanaPrincipal.directorio.getAgenda().entrySet()){
+            Contactos contacto = entry.getValue();
+            Long telefono = entry.getKey();
+            
+            if(contacto.getApellido().equalsIgnoreCase(apellido)){
+                modelo.addRow(new Object[]{
+                    contacto.getDni(),
+                    contacto.getApellido(),
+                    contacto.getNombre(),
+                    contacto.getDireccion(),
+                    contacto.getCiudad(),
+                    telefono
+                });
+            }
+        }
+    }
+    
     public frm_BuscarTelefonoPorApellido() {
         initComponents();
+        
+        cargarApellidosEnLista();
+        
+        jListApellidos.addListSelectionListener(e -> {
+            if(!e.getValueIsAdjusting()){
+                String apellidoSeleccionado = jListApellidos.getSelectedValue();
+                if(apellidoSeleccionado != null){
+                    txtF_Apellido.setText(apellidoSeleccionado);
+                    cargarContactosEnTabla(apellidoSeleccionado);
+                }
+            }
+        });
     }
 
     /**
@@ -85,17 +136,17 @@ public class frm_BuscarTelefonoPorApellido extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTituloBusquedaTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+                            .addComponent(lblTituloBusquedaTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 826, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblApellido)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtF_Apellido)
-                                    .addComponent(jScrollApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
+                                    .addComponent(jScrollApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(separador2, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -115,7 +166,7 @@ public class frm_BuscarTelefonoPorApellido extends javax.swing.JInternalFrame {
                     .addComponent(jScrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(btnSalir)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
