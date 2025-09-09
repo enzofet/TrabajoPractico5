@@ -39,14 +39,17 @@ public class frm_AgregarCiudad extends javax.swing.JInternalFrame {
         btnGuardarAgregarCiudad = new javax.swing.JButton();
         btnSalirAgregarCiudad = new javax.swing.JButton();
 
-        lblAgregarCiudad.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblAgregarCiudad.setFont(new java.awt.Font("URW Gothic", 1, 18)); // NOI18N
         lblAgregarCiudad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAgregarCiudad.setText("Agregar Ciudad");
 
-        lblNombreAgregarCiudad.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
+        lblNombreAgregarCiudad.setFont(new java.awt.Font("URW Gothic", 0, 14)); // NOI18N
         lblNombreAgregarCiudad.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNombreAgregarCiudad.setText("Nombre Ciudad:");
 
+        txtAgregarCiudad.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
+
+        btnGuardarAgregarCiudad.setFont(new java.awt.Font("URW Gothic", 0, 14)); // NOI18N
         btnGuardarAgregarCiudad.setText("Guardar");
         btnGuardarAgregarCiudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +57,7 @@ public class frm_AgregarCiudad extends javax.swing.JInternalFrame {
             }
         });
 
+        btnSalirAgregarCiudad.setFont(new java.awt.Font("URW Gothic", 0, 14)); // NOI18N
         btnSalirAgregarCiudad.setText("Salir");
         btnSalirAgregarCiudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,18 +69,18 @@ public class frm_AgregarCiudad extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+            .addComponent(lblAgregarCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addComponent(lblNombreAgregarCiudad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblAgregarCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnGuardarAgregarCiudad)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSalirAgregarCiudad))
-                    .addComponent(txtAgregarCiudad))
-                .addGap(67, 67, 67))
+                    .addComponent(txtAgregarCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,14 +88,14 @@ public class frm_AgregarCiudad extends javax.swing.JInternalFrame {
                 .addGap(23, 23, 23)
                 .addComponent(lblAgregarCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtAgregarCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombreAgregarCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                    .addComponent(lblNombreAgregarCiudad))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalirAgregarCiudad)
                     .addComponent(btnGuardarAgregarCiudad))
-                .addGap(36, 36, 36))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,7 +106,7 @@ public class frm_AgregarCiudad extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

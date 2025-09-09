@@ -67,7 +67,7 @@ public class frm_BuscarClienteCiudad extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanelBuscarPorCiudad = new javax.swing.JPanel();
         jblBuscarporCiudad = new javax.swing.JLabel();
         jblCiudades = new javax.swing.JLabel();
         jcbCiudad = new javax.swing.JComboBox<>();
@@ -75,15 +75,17 @@ public class frm_BuscarClienteCiudad extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         btnSalirDirectorioCiudad = new javax.swing.JButton();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanelBuscarPorCiudad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jblBuscarporCiudad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jblBuscarporCiudad.setFont(new java.awt.Font("URW Gothic", 1, 18)); // NOI18N
+        jblBuscarporCiudad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jblBuscarporCiudad.setText("Buscar Clientes de Directorio por Ciudad");
 
-        jblCiudades.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jblCiudades.setFont(new java.awt.Font("URW Gothic", 1, 14)); // NOI18N
         jblCiudades.setText("Ciudades:");
 
         jcbCiudad.setBackground(new java.awt.Color(51, 153, 255));
+        jcbCiudad.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
         jcbCiudad.setForeground(new java.awt.Color(51, 51, 51));
         jcbCiudad.setToolTipText("jcbCiudad2");
         jcbCiudad.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +106,7 @@ public class frm_BuscarClienteCiudad extends javax.swing.JInternalFrame {
         jTable1.setGridColor(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(jTable1);
 
+        btnSalirDirectorioCiudad.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
         btnSalirDirectorioCiudad.setText("Salir");
         btnSalirDirectorioCiudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,56 +114,50 @@ public class frm_BuscarClienteCiudad extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(150, 150, 150)
-                                .addComponent(jblBuscarporCiudad))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jblCiudades)
-                                    .addComponent(jcbCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 40, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnSalirDirectorioCiudad)))
-                .addContainerGap())
+        javax.swing.GroupLayout jPanelBuscarPorCiudadLayout = new javax.swing.GroupLayout(jPanelBuscarPorCiudad);
+        jPanelBuscarPorCiudad.setLayout(jPanelBuscarPorCiudadLayout);
+        jPanelBuscarPorCiudadLayout.setHorizontalGroup(
+            jPanelBuscarPorCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jblBuscarporCiudad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanelBuscarPorCiudadLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanelBuscarPorCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSalirDirectorioCiudad)
+                    .addGroup(jPanelBuscarPorCiudadLayout.createSequentialGroup()
+                        .addGroup(jPanelBuscarPorCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jblCiudades)
+                            .addComponent(jcbCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelBuscarPorCiudadLayout.setVerticalGroup(
+            jPanelBuscarPorCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBuscarPorCiudadLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jblBuscarporCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jblBuscarporCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanelBuscarPorCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBuscarPorCiudadLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addComponent(jblCiudades)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jcbCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(btnSalirDirectorioCiudad)
-                .addContainerGap())
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelBuscarPorCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelBuscarPorCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -187,7 +184,7 @@ public class frm_BuscarClienteCiudad extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalirDirectorioCiudad;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelBuscarPorCiudad;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel jblBuscarporCiudad;

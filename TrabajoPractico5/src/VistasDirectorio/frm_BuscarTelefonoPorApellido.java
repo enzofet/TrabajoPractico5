@@ -9,6 +9,7 @@ import Vistas.VentanaPrincipal;
 import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.DefaultListModel;
+import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -32,17 +33,23 @@ public class frm_BuscarTelefonoPorApellido extends javax.swing.JInternalFrame {
     }
 
     public void filtrar() {
-        String textoBusqueda = txtF_Apellido.getText();
+        //Lo paso a minuscula para que no distinga mayusculas
+        String textoBusqueda = txtF_Apellido.getText().toLowerCase();
+                
         TreeMap<Long, Contactos> contactos = VentanaPrincipal.directorio.getAgenda();
         DefaultListModel modelo = (DefaultListModel) jListApellidos.getModel();
         modelo.clear();
-        for (Map.Entry<Long, Contactos> c : contactos.entrySet()) {
-            String apellido = String.valueOf(c.getValue().getApellido().toLowerCase());
-            if (apellido.startsWith(textoBusqueda)) {
-                modelo.addElement(c.getValue().getApellido());
+
+        if (contactos != null) {
+            for (Map.Entry<Long, Contactos> c : contactos.entrySet()) {
+                Contactos contacto = c.getValue();
+                String apellido = contacto.getApellido();
+
+                if (apellido.toLowerCase().startsWith(textoBusqueda) && !modelo.contains(apellido)) {
+                    modelo.addElement(apellido);
+                }
             }
         }
-
     }
 
     private void cargarContactosEnTabla(String apellido) {
@@ -132,7 +139,15 @@ public class frm_BuscarTelefonoPorApellido extends javax.swing.JInternalFrame {
             new String [] {
                 "DNI", "Apellido", "Nombre", "Direccion", "Ciudad", "Telefono"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTableContactos.setName(""); // NOI18N
         jScrollTabla.setViewportView(jTableContactos);
 

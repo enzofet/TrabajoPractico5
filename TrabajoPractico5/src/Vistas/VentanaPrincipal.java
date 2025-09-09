@@ -92,7 +92,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         agregarCliente = new javax.swing.JMenuItem();
         buscarCliente = new javax.swing.JMenuItem();
         borrarCliente = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        borrarTelefonoDNI = new javax.swing.JMenuItem();
         directorioMenu = new javax.swing.JMenu();
         buscarClientePorCiudad = new javax.swing.JMenuItem();
         buscarTelPorApellido = new javax.swing.JMenuItem();
@@ -104,6 +104,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Directorio Telefonico");
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
@@ -118,6 +119,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         clientesMenu.setText("Clientes");
 
+        agregarCliente.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
         agregarCliente.setText("Agregar Cliente");
         agregarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +128,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         clientesMenu.add(agregarCliente);
 
+        buscarCliente.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
         buscarCliente.setText("Buscar Cliente");
         buscarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,6 +137,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         clientesMenu.add(buscarCliente);
 
+        borrarCliente.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
         borrarCliente.setText("Borrar Cliente");
         borrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,18 +146,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         clientesMenu.add(borrarCliente);
 
-        jMenuItem1.setText("Borrar telefono por DNI");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        borrarTelefonoDNI.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
+        borrarTelefonoDNI.setText("Borrar Telefono por DNI");
+        borrarTelefonoDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                borrarTelefonoDNIActionPerformed(evt);
             }
         });
-        clientesMenu.add(jMenuItem1);
+        clientesMenu.add(borrarTelefonoDNI);
 
         barraMenu.add(clientesMenu);
 
         directorioMenu.setText("Directorio");
 
+        buscarClientePorCiudad.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
         buscarClientePorCiudad.setText("Buscar Clientes por Ciudad");
         buscarClientePorCiudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,6 +168,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         directorioMenu.add(buscarClientePorCiudad);
 
+        buscarTelPorApellido.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
         buscarTelPorApellido.setText("Buscar Teléfono por Apellido");
         buscarTelPorApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,6 +181,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         ciudadesMenu.setText("Ciudades");
 
+        agregarCiudad.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
         agregarCiudad.setText("Agregar Ciudad");
         agregarCiudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,6 +194,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         salirMenu.setText("Salir");
 
+        btnSalir.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -274,14 +283,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         escritorio.moveToFront(vistaClienteBuscarCiudad);
     }//GEN-LAST:event_buscarClientePorCiudadActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void borrarTelefonoDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarTelefonoDNIActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
         frm_BorrarTelefonosPorDNI bc = new frm_BorrarTelefonosPorDNI();
         bc.setVisible(true);
         escritorio.add(bc);
         escritorio.moveToFront(bc);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_borrarTelefonoDNIActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,6 +332,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem agregarCliente;
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenuItem borrarCliente;
+    private javax.swing.JMenuItem borrarTelefonoDNI;
     private javax.swing.JMenuItem btnSalir;
     private javax.swing.JMenuItem buscarCliente;
     private javax.swing.JMenuItem buscarClientePorCiudad;
@@ -332,7 +342,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu directorioMenu;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu salirMenu;
     // End of variables declaration//GEN-END:variables
 }
