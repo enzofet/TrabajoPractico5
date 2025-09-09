@@ -21,35 +21,32 @@ public class frmBuscar extends javax.swing.JInternalFrame {
     /**
      * Creates new form frmBuscar
      */
-    public void rellenarLista(Directorio_Telefónico directorio){
+    public void rellenarLista(Directorio_Telefónico directorio) {
 
         TreeMap<Long, Contactos> agendaTemporal = new TreeMap<>();
         agendaTemporal = directorio.getAgenda();
         DefaultListModel modelo = new DefaultListModel();
-        for(Map.Entry<Long, Contactos> num : agendaTemporal.entrySet()){
+        for (Map.Entry<Long, Contactos> num : agendaTemporal.entrySet()) {
             modelo.addElement(num.getKey());
         }
         jListTelefonos.setModel(modelo);
-       
-        
+
     }
-    
-    public void filtrar(){
+
+    public void filtrar() {
         String textoBusqueda = txtF_Telefono.getText();
         TreeMap<Long, Contactos> contactos = VentanaPrincipal.directorio.getAgenda();
         DefaultListModel modelo = (DefaultListModel) jListTelefonos.getModel();
         modelo.clear();
-        for(Map.Entry<Long, Contactos> c : contactos.entrySet()){
+        for (Map.Entry<Long, Contactos> c : contactos.entrySet()) {
             String clave = String.valueOf(c.getKey());
-            if(clave.startsWith(textoBusqueda)){
+            if (clave.startsWith(textoBusqueda)) {
                 modelo.addElement(c.getKey());
             }
         }
-            
-        
-        
+
     }
-    
+
     public frmBuscar() {
         initComponents();
         rellenarLista(VentanaPrincipal.directorio);
@@ -247,15 +244,15 @@ public class frmBuscar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void jListTelefonosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListTelefonosValueChanged
-        if(!evt.getValueIsAdjusting() && jListTelefonos.getSelectedValue() != null){
-        Contactos contacto = VentanaPrincipal.directorio.buscarContacto(jListTelefonos.getSelectedValue());       
-        String dni = Integer.toString(contacto.getDni());
-        txtF_Apellido.setText(contacto.getApellido());
-        txtF_Ciudad.setText(contacto.getCiudad());
-        txtF_DNI.setText(dni);
-        txtF_Domicilio.setText(contacto.getDireccion());
-        txtF_Nombre.setText(contacto.getNombre());
-        txtF_Telefono.setText(Long.toString(jListTelefonos.getSelectedValue()));
+        if (!evt.getValueIsAdjusting() && jListTelefonos.getSelectedValue() != null) {
+            Contactos contacto = VentanaPrincipal.directorio.buscarContacto(jListTelefonos.getSelectedValue());
+            String dni = Integer.toString(contacto.getDni());
+            txtF_Apellido.setText(contacto.getApellido());
+            txtF_Ciudad.setText(contacto.getCiudad());
+            txtF_DNI.setText(dni);
+            txtF_Domicilio.setText(contacto.getDireccion());
+            txtF_Nombre.setText(contacto.getNombre());
+            txtF_Telefono.setText(Long.toString(jListTelefonos.getSelectedValue()));
         }
     }//GEN-LAST:event_jListTelefonosValueChanged
 

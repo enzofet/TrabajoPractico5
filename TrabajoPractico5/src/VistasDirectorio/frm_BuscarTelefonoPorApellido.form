@@ -100,6 +100,9 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="toolTipText" type="java.lang.String" value="Ingrese numero de telefono"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtF_ApellidoKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="separador2">
       <Properties>

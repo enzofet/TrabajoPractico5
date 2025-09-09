@@ -7,6 +7,7 @@ package VistasDirectorio;
 import Clases.Contactos;
 import Vistas.VentanaPrincipal;
 import java.util.Map;
+import java.util.TreeMap;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,27 +20,40 @@ public class frm_BuscarTelefonoPorApellido extends javax.swing.JInternalFrame {
     /**
      * Creates new form buscarTelefonoPorApellido
      */
-    
-    private void cargarApellidosEnLista(){
+    private void cargarApellidosEnLista() {
         DefaultListModel<String> modelo = new DefaultListModel<>();
-        
-        for(Contactos c : VentanaPrincipal.directorio.getAgenda().values()){
-            if(!modelo.contains(c.getApellido())){
+
+        for (Contactos c : VentanaPrincipal.directorio.getAgenda().values()) {
+            if (!modelo.contains(c.getApellido())) {
                 modelo.addElement(c.getApellido());
             }
         }
         jListApellidos.setModel(modelo);
     }
-    
-    private void cargarContactosEnTabla(String apellido){
+
+    public void filtrar() {
+        String textoBusqueda = txtF_Apellido.getText();
+        TreeMap<Long, Contactos> contactos = VentanaPrincipal.directorio.getAgenda();
+        DefaultListModel modelo = (DefaultListModel) jListApellidos.getModel();
+        modelo.clear();
+        for (Map.Entry<Long, Contactos> c : contactos.entrySet()) {
+            String apellido = String.valueOf(c.getValue().getApellido().toLowerCase());
+            if (apellido.startsWith(textoBusqueda)) {
+                modelo.addElement(c.getValue().getApellido());
+            }
+        }
+
+    }
+
+    private void cargarContactosEnTabla(String apellido) {
         DefaultTableModel modelo = (DefaultTableModel) jTableContactos.getModel();
         modelo.setRowCount(0);
-        
-        for(Map.Entry<Long, Contactos> entry : VentanaPrincipal.directorio.getAgenda().entrySet()){
+
+        for (Map.Entry<Long, Contactos> entry : VentanaPrincipal.directorio.getAgenda().entrySet()) {
             Contactos contacto = entry.getValue();
             Long telefono = entry.getKey();
-            
-            if(contacto.getApellido().equalsIgnoreCase(apellido)){
+
+            if (contacto.getApellido().equalsIgnoreCase(apellido)) {
                 modelo.addRow(new Object[]{
                     contacto.getDni(),
                     contacto.getApellido(),
@@ -51,16 +65,16 @@ public class frm_BuscarTelefonoPorApellido extends javax.swing.JInternalFrame {
             }
         }
     }
-    
+
     public frm_BuscarTelefonoPorApellido() {
         initComponents();
-        
+
         cargarApellidosEnLista();
-        
+
         jListApellidos.addListSelectionListener(e -> {
-            if(!e.getValueIsAdjusting()){
+            if (!e.getValueIsAdjusting()) {
                 String apellidoSeleccionado = jListApellidos.getSelectedValue();
-                if(apellidoSeleccionado != null){
+                if (apellidoSeleccionado != null) {
                     txtF_Apellido.setText(apellidoSeleccionado);
                     cargarContactosEnTabla(apellidoSeleccionado);
                 }
@@ -98,6 +112,11 @@ public class frm_BuscarTelefonoPorApellido extends javax.swing.JInternalFrame {
         txtF_Apellido.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
         txtF_Apellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtF_Apellido.setToolTipText("Ingrese numero de telefono");
+        txtF_Apellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtF_ApellidoKeyReleased(evt);
+            }
+        });
 
         separador2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -175,6 +194,10 @@ public class frm_BuscarTelefonoPorApellido extends javax.swing.JInternalFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void txtF_ApellidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtF_ApellidoKeyReleased
+        filtrar();
+    }//GEN-LAST:event_txtF_ApellidoKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
