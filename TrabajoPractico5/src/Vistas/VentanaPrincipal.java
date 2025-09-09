@@ -6,12 +6,12 @@
 package Vistas;
 
 import Clases.Directorio_Telefónico;
-import VistasCiudades.AgregarCiudad;
-import VistasClientes.AgregarClientes;
-import VistasClientes.BorrarClientes;
-import VistasClientes.BorrarTelefonosPorDNI;
-import VistasClientes.frmBuscar;
-import VistasDirectorio.BuscarCliente_Ciudad;
+import VistasCiudades.frm_AgregarCiudad;
+import VistasClientes.frm_AgregarClientes;
+import VistasClientes.frm_BorrarClientes;
+import VistasClientes.frm_BorrarTelefonosPorDNI;
+import VistasClientes.frm_Buscar;
+import VistasDirectorio.frm_BuscarClienteCiudad;
 import VistasDirectorio.frm_BuscarTelefonoPorApellido;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,7 +30,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      * Creates new form VentanaPrincipal
      */
     public static Directorio_Telefónico directorio = new Directorio_Telefónico();
-    private AgregarClientes vistaClienteAgregar;
+    private frm_AgregarClientes vistaClienteAgregar;
     
     /*Armo cabeceras de jTable */
     public static void armarCabeceraDeContactosTablas(JTable tabla){
@@ -70,7 +70,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     */
     
     public VentanaPrincipal() {
-        vistaClienteAgregar = new AgregarClientes();
+        vistaClienteAgregar = new frm_AgregarClientes();
         rellenoOrdenAlfabeticoComboBox(vistaClienteAgregar.getJcbCiudad());
         initComponents();
         
@@ -220,7 +220,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         vistaClienteAgregar.setVisible(false);
         escritorio.removeAll();
         escritorio.repaint();
-        AgregarCiudad vistaAgregarCiudad = new AgregarCiudad(vistaClienteAgregar);
+        frm_AgregarCiudad vistaAgregarCiudad = new frm_AgregarCiudad(vistaClienteAgregar);
         vistaAgregarCiudad.setVisible(true);
         escritorio.add(vistaAgregarCiudad);
         escritorio.moveToFront(vistaAgregarCiudad);
@@ -237,7 +237,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void borrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarClienteActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        BorrarClientes bc = new BorrarClientes();
+        frm_BorrarClientes bc = new frm_BorrarClientes();
         bc.setVisible(true);
         escritorio.add(bc);
         escritorio.moveToFront(bc);
@@ -246,7 +246,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void buscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarClienteActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        frmBuscar vistaClienteBuscar = new frmBuscar();
+        frm_Buscar vistaClienteBuscar = new frm_Buscar();
         vistaClienteBuscar.setVisible(true);
         escritorio.add(vistaClienteBuscar);
         escritorio.moveToFront(vistaClienteBuscar);
@@ -268,7 +268,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         VentanaPrincipal.rellenoOrdenAlfabeticoComboBox(vistaClienteAgregar.getJcbCiudad());
         escritorio.removeAll();
         escritorio.repaint();
-        BuscarCliente_Ciudad vistaClienteBuscarCiudad = new BuscarCliente_Ciudad(vistaClienteAgregar);
+        frm_BuscarClienteCiudad vistaClienteBuscarCiudad = new frm_BuscarClienteCiudad(vistaClienteAgregar);
         vistaClienteBuscarCiudad.setVisible(true);
         escritorio.add(vistaClienteBuscarCiudad);
         escritorio.moveToFront(vistaClienteBuscarCiudad);
@@ -277,7 +277,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        BorrarTelefonosPorDNI bc = new BorrarTelefonosPorDNI();
+        frm_BorrarTelefonosPorDNI bc = new frm_BorrarTelefonosPorDNI();
         bc.setVisible(true);
         escritorio.add(bc);
         escritorio.moveToFront(bc);
