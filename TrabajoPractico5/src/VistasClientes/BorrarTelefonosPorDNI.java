@@ -45,6 +45,23 @@ public class BorrarTelefonosPorDNI extends javax.swing.JInternalFrame {
         }
         jlDNIs.setModel(modelo);
     }
+    
+    public void filtrar(){
+        String textoBusqueda = txtDniCliente.getText();
+        TreeMap<Long, Contactos> contactos = VentanaPrincipal.directorio.getAgenda();
+        DefaultListModel modelo = (DefaultListModel) jlDNIs.getModel();
+        modelo.clear();
+        for(Map.Entry<Long, Contactos> c : contactos.entrySet()){
+            Contactos contacto = c.getValue();
+            String dni = String.valueOf(contacto.getDni());
+            if(dni.startsWith(textoBusqueda)){
+                modelo.addElement(c.getKey());
+            }
+        }
+            
+        
+        
+    }
 
     public BorrarTelefonosPorDNI() {
         initComponents();
@@ -74,7 +91,11 @@ public class BorrarTelefonosPorDNI extends javax.swing.JInternalFrame {
         lblDniCliente.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblDniCliente.setText("DNI:");
 
-        txtDniCliente.setEditable(false);
+        txtDniCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDniClienteKeyReleased(evt);
+            }
+        });
 
         tblBorrarCliente.setAutoCreateRowSorter(true);
         tblBorrarCliente.setModel(new javax.swing.table.DefaultTableModel(
@@ -191,7 +212,6 @@ public class BorrarTelefonosPorDNI extends javax.swing.JInternalFrame {
         if (!evt.getValueIsAdjusting() && jlDNIs.getSelectedValue() != null) {
             try {
                 String dni = jlDNIs.getSelectedValue();
-                txtDniCliente.setText(dni);
                 int dniParseado = Integer.parseInt(dni);
                 modelo = (DefaultTableModel) tblBorrarCliente.getModel();
                 modelo.setRowCount(0);
@@ -213,6 +233,10 @@ public class BorrarTelefonosPorDNI extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_jlDNIsValueChanged
+
+    private void txtDniClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniClienteKeyReleased
+        filtrar();
+    }//GEN-LAST:event_txtDniClienteKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

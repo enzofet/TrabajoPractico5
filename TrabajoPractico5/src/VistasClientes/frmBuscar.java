@@ -7,6 +7,7 @@ package VistasClientes;
 import Clases.Contactos;
 import Clases.Directorio_Telefónico;
 import Vistas.VentanaPrincipal;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.DefaultListModel;
@@ -30,6 +31,22 @@ public class frmBuscar extends javax.swing.JInternalFrame {
         }
         jListTelefonos.setModel(modelo);
        
+        
+    }
+    
+    public void filtrar(){
+        String textoBusqueda = txtF_Telefono.getText();
+        TreeMap<Long, Contactos> contactos = VentanaPrincipal.directorio.getAgenda();
+        DefaultListModel modelo = (DefaultListModel) jListTelefonos.getModel();
+        modelo.clear();
+        for(Map.Entry<Long, Contactos> c : contactos.entrySet()){
+            String clave = String.valueOf(c.getKey());
+            if(clave.startsWith(textoBusqueda)){
+                modelo.addElement(c.getKey());
+            }
+        }
+            
+        
         
     }
     
@@ -77,10 +94,16 @@ public class frmBuscar extends javax.swing.JInternalFrame {
         lblTelefono.setFont(new java.awt.Font("URW Gothic", 1, 13)); // NOI18N
         lblTelefono.setText("Teléfono:");
 
-        txtF_Telefono.setEditable(false);
         txtF_Telefono.setFont(new java.awt.Font("URW Gothic", 0, 13)); // NOI18N
         txtF_Telefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtF_Telefono.setToolTipText("Ingrese numero de telefono");
+        txtF_Telefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtF_TelefonoKeyReleased(evt);
+            }
+        });
+
+        jScrollTelefono.setMinimumSize(new java.awt.Dimension(259, 131));
 
         jListTelefonos.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -148,7 +171,7 @@ public class frmBuscar extends javax.swing.JInternalFrame {
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(separador)
-                            .addComponent(jScrollTelefono)
+                            .addComponent(jScrollTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtF_Telefono, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(separador2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,6 +247,7 @@ public class frmBuscar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void jListTelefonosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListTelefonosValueChanged
+        if(!evt.getValueIsAdjusting() && jListTelefonos.getSelectedValue() != null){
         Contactos contacto = VentanaPrincipal.directorio.buscarContacto(jListTelefonos.getSelectedValue());       
         String dni = Integer.toString(contacto.getDni());
         txtF_Apellido.setText(contacto.getApellido());
@@ -232,7 +256,12 @@ public class frmBuscar extends javax.swing.JInternalFrame {
         txtF_Domicilio.setText(contacto.getDireccion());
         txtF_Nombre.setText(contacto.getNombre());
         txtF_Telefono.setText(Long.toString(jListTelefonos.getSelectedValue()));
+        }
     }//GEN-LAST:event_jListTelefonosValueChanged
+
+    private void txtF_TelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtF_TelefonoKeyReleased
+        filtrar();
+    }//GEN-LAST:event_txtF_TelefonoKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

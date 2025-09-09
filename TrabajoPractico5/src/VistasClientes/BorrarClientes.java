@@ -9,8 +9,10 @@ import Clases.Contactos;
 import Vistas.VentanaPrincipal;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.TreeMap;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -77,20 +79,34 @@ public class BorrarClientes extends javax.swing.JInternalFrame {
         }
     }
 
+    public void filtrar() {
+        String textoBusqueda = txtDniCliente.getText();
+        TreeMap<Long, Contactos> contactos = VentanaPrincipal.directorio.getAgenda();
+        DefaultListModel modelo = (DefaultListModel) ListaContactos.getModel();
+        modelo.clear();
+        ListaContactos.removeListSelectionListener(ListaContactos.getListSelectionListeners()[0]);
+        if (contactos != null) {
+            for (Map.Entry<Long, Contactos> c : contactos.entrySet()) {
+                Contactos contacto = c.getValue();
+                String dni = String.valueOf(contacto.getDni());
+                if (dni.startsWith(textoBusqueda) && !modelo.contains(dni)) {
+                    modelo.addElement(dni);
+                }
+            }
+        }
+        ListaContactos.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            @Override
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                ListaContactosValueChanged(evt);
+            }
+        });
+
+    }
+
     public BorrarClientes() {
         initComponents();
         cargarDNIEnLista();
 
-        ListaContactos.addListSelectionListener(e -> {
-            if (!e.getValueIsAdjusting()) {
-                String dniStr = ListaContactos.getSelectedValue();
-                if (dniStr != null) {
-                    int dniSeleccionado = Integer.parseInt(dniStr);
-                    txtDniCliente.setText(dniStr);
-                    cargarClienteEnTabla(dniSeleccionado);
-                }
-            }
-        });
     }
 
     /**
@@ -115,9 +131,9 @@ public class BorrarClientes extends javax.swing.JInternalFrame {
         lblDniCliente.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblDniCliente.setText("DNI:");
 
-        txtDniCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDniClienteActionPerformed(evt);
+        txtDniCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDniClienteKeyReleased(evt);
             }
         });
 
@@ -151,6 +167,7 @@ public class BorrarClientes extends javax.swing.JInternalFrame {
             }
         });
         tblBorrarCliente.setName("Lista Clientes"); // NOI18N
+        tblBorrarCliente.setRowSelectionAllowed(false);
         jScrollPane1.setViewportView(tblBorrarCliente);
 
         jLabel1.setFont(new java.awt.Font("URW Gothic", 1, 24)); // NOI18N
@@ -225,12 +242,8 @@ public class BorrarClientes extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtDniClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDniClienteActionPerformed
-
     private void btnBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarClienteActionPerformed
-        String dniTexto = txtDniCliente.getText().trim();
+        String dniTexto = ListaContactos.getSelectedValue();
         if (!dniTexto.isEmpty()) {
             try {
                 int dni = Integer.parseInt(dniTexto);
@@ -249,7 +262,22 @@ public class BorrarClientes extends javax.swing.JInternalFrame {
 
     private void ListaContactosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaContactosValueChanged
 
+        if (!evt.getValueIsAdjusting() && ListaContactos.getSelectedValue() != null) {
+            String dni = ListaContactos.getSelectedValue();
+            try {
+                int seleccionado = Integer.parseInt(dni);
+                cargarClienteEnTabla(seleccionado);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "DNI inválido", "Error", JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+            }
+        }
     }//GEN-LAST:event_ListaContactosValueChanged
+
+    private void txtDniClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniClienteKeyReleased
+        
+        filtrar();
+    }//GEN-LAST:event_txtDniClienteKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
